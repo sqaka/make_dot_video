@@ -1,0 +1,7 @@
+.devcontainer
+.dots
+.vscode
+.DS_Store
+images/
+output/
+video/
