@@ -15,6 +15,7 @@
 面倒なので、1280x720を参照
 
 ### dir
+```
 make_dot_videos
 ├── README.md
 ├── requirements.txt
@@ -29,3 +30,4 @@ make_dot_videos
 └── images
     ├── normal_image
     └── dot_image
+```
