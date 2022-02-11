@@ -11,7 +11,7 @@
 - run `connect_pict.py (-f video_name)` to make dot_movie
 
 ### notice
-1920x1080では267枚がpick_flame上限
+1920x1080では267枚がpick_flame上限\n
 面倒なので、1280x720を参照
 
 ### dir
