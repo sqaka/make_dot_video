@@ -5,11 +5,11 @@
 - `pip3 install -r requirements.txt`
 
 ### how to 
-- put mp4 file in `./video`
+- put mp4 file in `./video`  
     ex. `./video/sample.mp4`
-- run `run.py -f [video_name without(.mp4)]`
+- run `run.py -f [video_name without(.mp4)]`  
     ex. `python3 run.py -f sample`
-- two mp4 file in `./output`
+- two mp4 file in `./output`  
     ex. `./output/sample_k4.mp4` and `./output/sample_k16.mp4`
 
 ### notice
