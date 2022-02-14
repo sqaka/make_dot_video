@@ -13,8 +13,8 @@
     ex. `./output/sample_k4.mp4` and `./output/sample_k16.mp4`
 
 ### notice
-1920x1080では267枚がpick_flame上限  
-1280x720を推奨。先頭600f以降は棄却
+1920x1080では267imagesがmake_dots処理上限のため、1280x720を推奨。  
+1280x720であっても610images付近が処理上限のため、先頭600f以降は棄却。
 
 ### dir
 ```
