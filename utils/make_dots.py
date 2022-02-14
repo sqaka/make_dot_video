@@ -1,15 +1,12 @@
 # -*- coding: utf-8 -*-
 import glob
 import numpy as np
+import os
 
 import cv2
 
-import click
-
 IMAGE_PATH = './images/normal_image/'
 DOT_PATH = './images/dot_image/'
-ALPHA = 2  # 0.5, 2
-K = 16  # 4, 16
 
 
 def get_image(file_header):
@@ -51,10 +48,12 @@ def pixel_art(img, alpha, k):
     return sub_color(img, k)
 
 
-def make_dots(img_array, file_header):
+def make_dots(img_array, file_header, alpha, k):
+    os.makedirs(DOT_PATH, exist_ok=True)
+
     count = 0
     for i in img_array:
-        dst = pixel_art(i, ALPHA, K)
+        dst = pixel_art(i, alpha, k)
         cv2.imwrite(DOT_PATH + file_header +
                     str(count).zfill(4) + '.png', dst)
         print('save: {}{}.png'.format(file_header, str(count).zfill(4)))
@@ -62,11 +61,10 @@ def make_dots(img_array, file_header):
     print('=== complete! ===')
 
 
-@click.command()
-@click.option('--file_header', '-f', type=str, default='')
-def main(file_header):
+def main(file_header, k_param):
+    alpha_param = 0.5 if k_param == 4 else 2
     img_array = get_image(file_header)
-    make_dots(img_array, file_header)
+    make_dots(img_array, file_header, alpha_param, k_param)
 
 
 if __name__ == '__main__':

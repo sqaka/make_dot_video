@@ -2,7 +2,6 @@
 import glob
 import os
 
-import click
 
 IMAGE_PATH = './images/normal_image/'
 DOT_PATH = './images/dot_image/'
@@ -20,8 +19,6 @@ def erase_dot(file_header):
         print('Delete: {}'.format(file_name))
 
 
-@click.command()
-@click.option('--file_header', '-f', type=str, default='safety')
 def main(file_header):
     erase_image(file_header)
     erase_dot(file_header)

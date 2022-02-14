@@ -4,7 +4,6 @@ import sys
 
 import cv2
 
-import click
 
 VIDEO_PATH = './video/'
 IMAGE_PATH = './images/normal_image/'
@@ -26,9 +25,9 @@ def movie_to_image(file_header):
         width, height, count, fps))
 
     digit = len(str(int(cap.get(cv2.CAP_PROP_FRAME_COUNT))))
+    os.makedirs(IMAGE_PATH, exist_ok=True)
 
     count = 0
-    os.makedirs(IMAGE_PATH, exist_ok=True)
     while True:
         is_image, frame_img = cap.read()
         if is_image:
@@ -38,13 +37,13 @@ def movie_to_image(file_header):
         else:
             break
         count += 1
+        if count == 600:
+            break
 
     cap.release()
     print('=== complete! ===')
 
 
-@click.command()
-@click.option('--file_header', '-f', type=str, default='')
 def main(file_header):
     movie_to_image(file_header)
 

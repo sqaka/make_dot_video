@@ -6,13 +6,11 @@
 
 ### how to 
 - put mp4 file in `./video`
-- run `pick_flame.py (-f video_name)` to make normal_images
-- run `make_dots.py (-f video_name)` to make dot_images
-- run `connect_pict.py (-f video_name)` to make dot_movie
+- run `run.py -f (video_name without [.mp4])` to make two dot_movies
 
 ### notice
 1920x1080では267枚がpick_flame上限  
-1280x720を推奨
+1280x720を推奨。pick上限を600fに設定
 
 ### dir
 ```
@@ -20,14 +18,16 @@ make_dot_videos
 ├── README.md
 ├── requirements.txt
 │
-├── pick_flame.py
-├── make_dots.py
-├── connect_pict.py
-├── eraser.py
+├── run.py
+├── utils/
+│   ├── pick_flame.py
+│   ├── make_dots.py
+│   ├── connect_pict.py
+│   └── eraser.py
 │
-├── video
-├── output
-└── images
-    ├── normal_image
-    └── dot_image
+├── video/
+├── output/
+└── images/
+    ├── normal_image/
+    └── dot_image/
 ```

@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 import glob
+import os
 
 import cv2
 
-import click
 
 DOT_PATH = './images/dot_image/'
 MOVIE_PATH = './output/'
 
 
-def make_mp4(file_header):
+def make_mp4(file_header, k_param):
     img_array = []
     for file_name in sorted(glob.glob(DOT_PATH + file_header + '*.png')):
         print('load: {}'.format(file_name))
@@ -18,7 +18,8 @@ def make_mp4(file_header):
         size = (width, height)
         img_array.append(img)
 
-    name = MOVIE_PATH + file_header + '.mp4'
+    os.makedirs(MOVIE_PATH, exist_ok=True)
+    name = '{}{}_p{}.mp4'.format(MOVIE_PATH, file_header, k_param)
     out = cv2.VideoWriter(name, cv2.VideoWriter_fourcc(*'MP4V'), 5.0, size)
 
     for i in range(len(img_array)):
@@ -26,10 +27,8 @@ def make_mp4(file_header):
     out.release()
 
 
-@click.command()
-@click.option('--file_header', '-f', type=str, default='')
-def main(file_header):
-    make_mp4(file_header)
+def main(file_header, k_param):
+    make_mp4(file_header, k_param)
 
 
 if __name__ == '__main__':

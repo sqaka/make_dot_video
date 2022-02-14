@@ -5,3 +5,4 @@
 images/
 output/
 video/
+utils/__pycache__/
