@@ -19,7 +19,7 @@ def make_mp4(file_header, k_param):
         img_array.append(img)
 
     os.makedirs(MOVIE_PATH, exist_ok=True)
-    name = '{}{}_p{}.mp4'.format(MOVIE_PATH, file_header, k_param)
+    name = '{}{}_k{}.mp4'.format(MOVIE_PATH, file_header, k_param)
     out = cv2.VideoWriter(name, cv2.VideoWriter_fourcc(*'MP4V'), 5.0, size)
 
     for i in range(len(img_array)):

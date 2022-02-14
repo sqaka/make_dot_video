@@ -5,9 +5,9 @@ import click
 
 from utils.eraser import erase_dot
 from utils.eraser import erase_image
-from utils.pick_flame import main as pick_flame
+from utils.pick_flame import movie_to_image
 from utils.make_dots import main as make_dots
-from utils.connect_pict import main as connect_pict
+from utils.connect_pict import make_mp4
 
 PALAM = [4, 16]
 VIDEO_PATH = './video/'
@@ -23,10 +23,10 @@ def move_video(file_header):
 @click.command()
 @click.option('--file_header', '-f', type=str, default='')
 def main(file_header):
-    pick_flame(file_header)
+    movie_to_image(file_header)
     for i in PALAM:
         make_dots(file_header, int(i))
-        connect_pict(file_header, str(i))
+        make_mp4(file_header, str(i))
         erase_dot(file_header)
     erase_image(file_header)
     move_video(file_header)
