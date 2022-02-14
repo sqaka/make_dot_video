@@ -6,7 +6,8 @@
 
 ### how to 
 - put mp4 file in `./video`
-- run `run.py -f (video_name without [.mp4])` to make two dot_movies
+- run `run.py -f (video_name without [.mp4])`
+- two mp4 file in `./output`
 
 ### notice
 1920x1080では267枚がpick_flame上限  
