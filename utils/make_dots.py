@@ -7,6 +7,12 @@ import cv2
 
 IMAGE_PATH = './images/normal_image/'
 DOT_PATH = './images/dot_image/'
+DOT_PARAM = {3: 0.3, 4: 0.5, 8: 2}
+
+
+def read_alpha_param(k_param):
+    alpha_param = DOT_PARAM[k_param]
+    return alpha_param
 
 
 def get_image(file_header):
@@ -62,7 +68,7 @@ def make_dots(img_array, file_header, alpha, k):
 
 
 def main(file_header, k_param):
-    alpha_param = 0.5 if k_param == 4 else 2
+    alpha_param = read_alpha_param(k_param)
     img_array = get_image(file_header)
     make_dots(img_array, file_header, alpha_param, k_param)
 
